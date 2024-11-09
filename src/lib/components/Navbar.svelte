@@ -1,13 +1,21 @@
 <script lang="ts">
   import Icon from "@iconify/svelte";
+  import { onMount } from "svelte";
   import { twMerge } from "tailwind-merge";
 
   let sidebarStatus = false;
+  let doc: Document | null = null;
 
-  $: if (sidebarStatus) {
-    document.body.classList.add("overflow-hidden");
-  } else {
-    document.body.classList.remove("overflow-hidden");
+  onMount(() => {
+    doc = window.document;
+  });
+
+  $: if (doc) {
+    if (sidebarStatus) {
+      doc.body.classList.add("overflow-hidden");
+    } else {
+      doc.body.classList.remove("overflow-hidden");
+    }
   }
 </script>
 
