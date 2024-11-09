@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply scroll-smooth scroll-m-8;
+  }
+}
+
+@layer utilities {
+  .container {
+    @apply w-[92.5%] md:w-[87.5%] xl:w-[82.5%] mx-auto;
+  }
+}
